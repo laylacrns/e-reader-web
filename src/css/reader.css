@@ -5,60 +5,62 @@
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: #1a1a1a;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
 }
 
 .reader-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: #ffffff;
 }
 
 .reader-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #000000;
+    color: #ffffff;
     padding: 15px 20px;
     display: flex;
     align-items: center;
     gap: 15px;
+    border-bottom: 1px solid #cccccc;
 }
 
 .back-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: none;
+    background: none;
+    color: #ffffff;
+    border: 1px solid #ffffff;
     padding: 8px 15px;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 1em;
-    transition: all 0.3s ease;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
 }
 
 .back-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #ffffff;
+    color: #000000;
 }
 
 .reader-header h1 {
     flex: 1;
-    font-size: 1.3em;
+    font-size: 1.1em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 600;
 }
 
 .progress-bar {
     width: 150px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
+    height: 4px;
+    background: #444444;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    background: white;
+    background: #ffffff;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -67,59 +69,61 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 40px;
-    background: white;
-    font-size: 1.1em;
+    background: #ffffff;
+    font-size: 1em;
     line-height: 1.8;
 }
 
 .book-text {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: justify;
+    user-select: text;
+    color: #1a1a1a;
 }
 
 .reader-footer {
-    background: #f9f9f9;
-    border-top: 2px solid #eee;
+    background: #f5f5f5;
+    border-top: 1px solid #d0d0d0;
     padding: 15px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .reader-footer button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #000000;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 0.9em;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .reader-footer button:hover {
-    transform: scale(1.05);
+    background: #333333;
 }
 
 .reader-footer button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: scale(1);
 }
 
 #page-info {
     min-width: 100px;
     text-align: center;
-    font-weight: bold;
-    color: #666;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.9em;
 }
 
 #bookmark-btn {
-    background: #f39c12;
+    background: #333333;
 }
 
 #bookmark-btn:hover {
-    background: #e67e22;
+    background: #555555;
 }
