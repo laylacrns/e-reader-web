@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor</title>
+    <link rel="stylesheet" href="../css/reader.css">
+</head>
+<body>
+    <div class="reader-container">
+        <header class="reader-header">
+            <button id="back-btn" class="back-btn">← Voltar</button>
+            <h1 id="book-title">Carregando...</h1>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </header>
+
+        <main class="reader-content">
+            <div id="book-content" class="book-text">
+                Carregando livro...
+            </div>
+        </main>
+
+        <footer class="reader-footer">
+            <button id="prev-btn">← Anterior</button>
+            <span id="page-info">Página 1 de 1</span>
+            <button id="next-btn">Próximo →</button>
+            <button id="bookmark-btn">🔖 Bookmark</button>
+        </footer>
+    </div>
+
+    <script src="../js/reader.js"></script>
+</body>
+</html>

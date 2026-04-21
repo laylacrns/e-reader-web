@@ -76,8 +76,7 @@ function setupUpload() {
 
 // Função para ler livro
 function readBook(index) {
-    const book = books[index];
-    alert(`Abrindo: ${book.name}\n\nPrimeiras 100 caracteres:\n${book.content.substring(0, 100)}...`);
+    window.location.href = `pages/reader.html?book=${index}`;
 }
 
 // Função para mostrar bookmarks
