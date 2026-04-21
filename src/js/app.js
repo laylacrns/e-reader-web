@@ -44,7 +44,7 @@ function setupUpload() {
     const uploadBtn = document.getElementById('upload-btn');
     const fileInput = document.getElementById('file-input');
 
-    uploadBtn.addEventListener('click', () => {
+    uploadBtn.addEventListener('click', async () => {
         const file = fileInput.files[0];
 
         if (!file) {
@@ -52,25 +52,45 @@ function setupUpload() {
             return;
         }
 
-        const reader = new FileReader();
+        // Mostra mensagem de carregamento
+        uploadBtn.disabled = true;
+        uploadBtn.textContent = 'Convertendo...';
 
-        reader.onload = (e) => {
-            const newBook = {
-                name: file.name,
-                content: e.target.result,
-                size: file.size,
-                dateAdded: new Date().toLocaleDateString('pt-BR')
-            };
+        try {
+            // Envia para servidor converter
+            const formData = new FormData();
+            formData.append('file', file);
 
-            books.push(newBook);
-            localStorage.setItem('books', JSON.stringify(books));
-            
-            alert(`Livro "${file.name}" adicionado com sucesso!`);
-            fileInput.value = '';
-            displayBooks();
-        };
+            const response = await fetch('/api/convert', {
+                method: 'POST',
+                body: formData
+            });
 
-        reader.readAsText(file);
+            const result = await response.json();
+
+            if (result.success) {
+                const newBook = {
+                    name: file.name,
+                    content: result.text,
+                    size: result.text.length,
+                    dateAdded: new Date().toLocaleDateString('pt-BR')
+                };
+
+                books.push(newBook);
+                localStorage.setItem('books', JSON.stringify(books));
+                
+                alert(`Livro "${file.name}" convertido e adicionado com sucesso!`);
+                fileInput.value = '';
+                displayBooks();
+            } else {
+                alert('Erro ao converter: ' + result.error);
+            }
+        } catch (error) {
+            alert('Erro ao fazer upload: ' + error.message);
+        } finally {
+            uploadBtn.disabled = false;
+            uploadBtn.textContent = 'Enviar Livro';
+        }
     });
 }
 
