@@ -7,7 +7,16 @@
     "start": "npx http-server src -p 8000",
     "dev": "npx http-server src -p 8000 -c-1"
   },
-  "keywords": ["e-reader", "web"],
+  "keywords": [
+    "e-reader",
+    "web"
+  ],
   "author": "layla",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cors": "^2.8.6"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
