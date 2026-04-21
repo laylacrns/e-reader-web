@@ -1,0 +1,13 @@
+{
+  "name": "e-reader-web",
+  "version": "1.0.0",
+  "description": "Interface web para e-reader",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npx http-server src -p 8000",
+    "dev": "npx http-server src -p 8000 -c-1"
+  },
+  "keywords": ["e-reader", "web"],
+  "author": "layla",
+  "license": "MIT"
+}

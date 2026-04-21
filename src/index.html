@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Reader</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Meu E-Reader</h1>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="library">Biblioteca</button>
+            <button class="tab-btn" data-tab="upload">Upload</button>
+            <button class="tab-btn" data-tab="bookmarks">Bookmarks</button>
+        </nav>
+
+        <main>
+            <!-- Aba: Biblioteca -->
+            <section id="library" class="tab-content active">
+                <h2>Meus Livros</h2>
+                <div id="books-list" class="books-grid">
+                    <p>Nenhum livro carregado ainda</p>
+                </div>
+            </section>
+
+            <!-- Aba: Upload -->
+            <section id="upload" class="tab-content">
+                <h2>Enviar Livro</h2>
+                <div class="upload-area">
+                    <input type="file" id="file-input" accept=".txt,.pdf,.epub" />
+                    <button id="upload-btn">Enviar Livro</button>
+                </div>
+            </section>
+
+            <!-- Aba: Bookmarks -->
+            <section id="bookmarks" class="tab-content">
+                <h2>Meus Bookmarks</h2>
+                <div id="bookmarks-list">
+                    <p>Nenhum bookmark salvo</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
