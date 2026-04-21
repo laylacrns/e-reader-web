@@ -9,15 +9,24 @@ async function convertFile(filePath, ext) {
         if (ext === '.txt') {
             return fs.readFileSync(filePath, 'utf-8');
         } else if (ext === '.pdf') {
-            return 'NOTA: Extração de PDF em desenvolvimento.\n\nPor enquanto, use arquivos .txt para melhor compatibilidade.\n\nPara converter seu PDF para texto:\n1. Use um conversor online como pdftotext.com\n2. Ou instale pdftotext: sudo apt install poppler-utils\n3. Então: pdftotext seu_arquivo.pdf seu_arquivo.txt';
-        } else if (ext === '.epub' || ext === '.mobi' || ext === '.azw') {
-            return 'Formato em desenvolvimento. Use TXT ou PDF por enquanto.';
+            try {
+                const pdfParse = require('pdf-parse');
+                const dataBuffer = fs.readFileSync(filePath);
+                const data = await pdfParse(dataBuffer);
+                return data.text || 'PDF carregado';
+            } catch(e) {
+                return 'PDF detectado mas extração não disponível. Converta para TXT.';
+            }
+        } else if (ext === '.epub') {
+            return 'EPUB detectado mas extração em desenvolvimento. Converta para TXT.';
+        } else if (ext === '.mobi' || ext === '.azw') {
+            return 'MOBI/AZW detectado mas extração em desenvolvimento. Converta para TXT.';
         } else {
             throw new Error(`Extensão não reconhecida: ${ext}`);
         }
     } catch (error) {
         console.error('Erro ao converter:', error.message);
-        throw error;
+        return `Erro ao processar arquivo: ${error.message}`;
     }
 }
 
